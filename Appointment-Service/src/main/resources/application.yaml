@@ -12,6 +12,15 @@ resilience4j:
         minimum-number-of-calls: 5
         wait-duration-in-open-state: 10s
         permitted-number-of-calls-in-half-open-state: 3
+  retry:
+    instances:
+      doctorServiceCB:
+        max-attempts: 3
+        wait-duration: 2s
+        retry-exceptions:
+          - org.springframework.web.client.ResourceAccessException
+          - java.net.ConnectException
+
 
 logging:
   level:

@@ -1,6 +1,7 @@
 package com.exam.appointmentservice.controller;
 
 import com.exam.appointmentservice.DoctorResponse;
+import com.exam.appointmentservice.PatientResponse;
 import com.exam.appointmentservice.service.AppointmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,5 +21,12 @@ public class AppointmentController {
             @PathVariable Long doctorId
     ) {
         return appointmentService.checkDoctor(doctorId);
+    }
+
+    @GetMapping("/check-patitent/{patientId}")
+    public PatientResponse checkPatient(
+            @PathVariable Long patientId
+    ){
+        return appointmentService.checkPatient(patientId);
     }
 }
